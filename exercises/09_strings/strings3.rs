@@ -3,7 +3,7 @@ fn trim_me(input: &str) -> &str {
 }
 
 fn compose_me(input: &str) -> String {
-    // TODO: 在字符串后面添加 "world!" ，有很多方法可以做到这一点。
+    // TODO: 在字符串后面添加 " world!" ，有很多方法可以做到这一点。
 }
 
 fn replace_me(input: &str) -> String {

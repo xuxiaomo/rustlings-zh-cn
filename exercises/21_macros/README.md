@@ -6,6 +6,6 @@ Rust的宏系统非常强大，但也有点让人难以理解。我们不打算�
 ## 对应知识
 
 - [Macros](https://doc.rust-lang.org/book/ch19-06-macros.html)
-- [The Rust Book - Macros](https://doc.rust-lang.org/book/ch20-06-macros.html#macros)
+- [The Rust Book - Macros](https://doc.rust-lang.org/book/ch20-05-macros.html#macros)
 - [The Little Book of Rust Macros(Rust宏简册)](https://veykril.github.io/tlborm/)
 - [Rust by Example - macro_rules!](https://doc.rust-lang.org/rust-by-example/macros.html)

@@ -55,17 +55,29 @@ jobs:
         
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git add README.md
-        git commit -m "track: to Commit ${{ steps.get_hash.outputs.latest_hash }}"
-        git push
+        
+        # 检查是否有文件变更
+        if git diff --quiet; then
+          echo "No changes to commit"
+          exit 0
+        else
+          git add README.md
+          git commit -m "track: to Commit ${{ steps.get_hash.outputs.latest_hash }}"
+          git push
+        fi
     
     - name: Commit changes
       if: steps.compare.outputs.status == 'NEED_UPDATE'
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git add commit-hash.txt README.md
-        git commit -m "track: to Commit ${{ steps.get_hash.outputs.latest_hash }}"
-        git push
-        # 标记为运行失败
-        exit 1 
+
+        # 检查是否有文件变更
+        if git diff --quiet; then
+          echo "No changes to commit"
+          exit 0
+        else
+          git add commit-hash.txt README.md
+          git commit -m "track: to Commit ${{ steps.get_hash.outputs.latest_hash }}"
+          git push
+        fi

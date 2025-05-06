@@ -25,10 +25,27 @@ enum Command {
 }
 
 mod my_module {
+    use std::{io::IsTerminal, ops::Mul, process::Output, result};
+
     use super::Command;
 
     // TODO: 按照上述要求实现该函数。
     // pub fn transformer(input: ???) -> ??? { ??? }
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
+        let mut output= Vec::new();
+
+        for (string, command) in input {
+            let new_string = match command {
+                Command::Uppercase => string.to_uppercase(),
+                Command::Trim => string.trim().to_string(),
+                Command::Append(n) => string + &"bar".repeat(n),
+            };
+            output.push(new_string);
+        }
+        
+
+        output
+    }
 }
 
 fn main() {
@@ -39,6 +56,7 @@ fn main() {
 mod tests {
     // TODO: 我们需要引入什么才能使 `transformer` 在作用域内可用呢?
     // use ???;
+    use super::my_module::transformer;
     use super::Command;
 
     #[test]

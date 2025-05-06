@@ -1,10 +1,6 @@
 // TODO: 修改这个函数中的编译器错误。
 fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
-<<<<<<< HEAD
     let mut vec = vec; //git test
-=======
-    let mut vec = vec;
->>>>>>> 491f645 (enums ok)
 
     vec.push(88);
 

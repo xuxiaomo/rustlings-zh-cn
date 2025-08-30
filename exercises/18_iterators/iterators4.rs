@@ -11,10 +11,17 @@ fn factorial(num: u64) -> u64 {
     //   - 额外的变量
     // 额外挑战，不使用:
     //   - 递归
+    (2..=num).fold(1, |acc, x| acc * x)
 }
 
 fn main() {
     // (可选)你可以选择性地在此处进行试验。
+    println!("{}", factorial(0));
+    println!("{}", factorial(1));
+    println!("{}", factorial(2));
+    println!("{}", factorial(3));
+    println!("{}", factorial(4));
+    println!("{}", factorial(5));
 }
 
 #[cfg(test)]
@@ -40,4 +47,3 @@ mod tests {
         assert_eq!(factorial(4), 24);
     }
 }
-

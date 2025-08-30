@@ -26,6 +26,7 @@ fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
 fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {
     // `map` 是一个哈希表，具有键 `String` 和 值 `Progress`。
     // map = { "variables1": Complete, "from_str": None, … }
+    map.iter().filter(|(_, &v)| v == value).count()
 }
 
 fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
@@ -45,6 +46,16 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
     // `collection` 是哈希表的切片。
     // collection = [{ "variables1": Complete, "from_str": None, … },
     //               { "variables2": Complete, … }, … ]
+    // collection
+    //     .iter()
+    //     .flat_map(|hash| hash.values())
+    //     .filter(|v| **v == value)
+    //     .count()
+    collection
+        .iter()
+        .flatten()
+        .filter(|&v| v.1 == &value)
+        .count()
 }
 
 fn main() {
